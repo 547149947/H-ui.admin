@@ -1,7 +1,4 @@
 /*H-ui.js v1.5.1 date:15:42 2014-9-30 by:guojunhui*/
-/*$().resize()*/
-(function($,h,c){var a=$([]),e=$.resize=$.extend($.resize,{}),i,k="setTimeout",j="resize",d=j+"-special-event",b="delay",f="throttleWindow";e[b]=250;e[f]=true;$.event.special[j]={setup:function(){if(!e[f]&&this[k]){return false}var l=$(this);a=a.add(l);$.data(this,d,{w:l.width(),h:l.height()});if(a.length===1){g()}},teardown:function(){if(!e[f]&&this[k]){return false}var l=$(this);a=a.not(l);l.removeData(d);if(!a.length){clearTimeout(i)}},add:function(l){if(!e[f]&&this[k]){return false}var n;function m(s,o,p){var q=$(this),r=$.data(this,d);r.w=o!==c?o:q.width();r.h=p!==c?p:q.height();n.apply(this,arguments)}if($.isFunction(l)){n=l;return m}else{n=l.handler;l.handler=m}}};function g(){i=h[k](function(){a.each(function(){var n=$(this),m=n.width(),l=n.height(),o=$.data(this,d);if(m!==o.w||l!==o.h){n.trigger(j,[o.w=m,o.h=l])}});g()},e[b])}})(jQuery,this);
-
 if (navigator.userAgent.match(/IEMobile\/10\.0/)) {
   var msViewportStyle = document.createElement("style")
   msViewportStyle.appendChild(
@@ -18,19 +15,45 @@ if (navigator.userAgent.match(/IEMobile\/10\.0/)) {
 var webName ="H-ui前端框架";
 var webSite ="http://www.h-ui.net/";
 /*收藏主站*/
-function addFavorite(){try{window.external.addFavorite(webSite,webName);}catch(e){try{window.sidebar.addPanel(webName,webSite,"");}catch(e){alert("加入收藏失败，请使用Ctrl+D进行添加");}}}
+function addFavorite(){
+	try{
+		window.external.addFavorite(webSite,webName);
+	}
+	catch(e){
+		try{
+			window.sidebar.addPanel(webName,webSite,"");
+		}
+		catch(e){
+			alert("加入收藏失败，请使用Ctrl+D进行添加");
+		}
+	}
+}
 /*收藏页面
 <a title="收藏本页" href="javascript:addFavoritepage(0);">收藏本页</a>
 */
-function addFavoritepage(){var sURL=window.location.href;var sTitle=document.title;try{window.external.addFavorite(sURL,sTitle);}catch(e){try{window.sidebar.addPanel(sTitle,sURL,"");}catch(e){alert("加入收藏失败，请使用Ctrl+D进行添加");}}}
+function addFavoritepage(){
+	var sURL=window.location.href;
+	var sTitle=document.title;
+	try{
+		window.external.addFavorite(sURL,sTitle);
+	}
+	catch(e){
+		try{
+			window.sidebar.addPanel(sTitle,sURL,"");
+		}
+		catch(e){
+			alert("加入收藏失败，请使用Ctrl+D进行添加");
+		}
+	}
+}
 /*设为首页*/
 function setHome(obj){
-  try{obj.style.behavior="url(#default#homepage)";obj.setHomePage(webSite);}
-  catch(e){if(window.netscape){
-	  try {netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect");}
-	  catch(e){alert("此操作被浏览器拒绝！\n请在浏览器地址栏输入\"about:config\"并回车\n然后将 [signed.applets.codebase_principal_support]的值设置为'true',双击即可。");}
-	  var prefs = Components.classes['@mozilla.org/preferences-service;1'].getService(Components.interfaces.nsIPrefBranch);
-	  prefs.setCharPref('browser.startup.homepage',url);}}
+	try{obj.style.behavior="url(#default#homepage)";obj.setHomePage(webSite);}
+	catch(e){if(window.netscape){
+		try {netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect");}
+		catch(e){alert("此操作被浏览器拒绝！\n请在浏览器地址栏输入\"about:config\"并回车\n然后将 [signed.applets.codebase_principal_support]的值设置为'true',双击即可。");}
+		var prefs = Components.classes['@mozilla.org/preferences-service;1'].getService(Components.interfaces.nsIPrefBranch);
+		prefs.setCharPref('browser.startup.homepage',url);}}
 }
 /*滚动*/
 function marquee(height,speed,delay){
@@ -62,7 +85,7 @@ function marquee(height,speed,delay){
 
 
 /*隐藏显示密码*/
-(function ( $ ) {
+(function ($) {
     $.fn.togglePassword = function( options ) {
         var s = $.extend( $.fn.togglePassword.defaults, options ),
         input = $( this );
@@ -77,7 +100,7 @@ function marquee(height,speed,delay){
     $.fn.togglePassword.defaults = {
         ev: "click"
     };
-}( jQuery ));
+}(jQuery));
 
 /*Huimodalalert*/
 function Huimodal_alert(info,speed){

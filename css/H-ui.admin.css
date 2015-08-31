@@ -24,10 +24,9 @@ a{color:#333}a:hover,a:focus,.maincolor,.maincolor a{color:#06c}
 /*--------------------H-uiAdmin-------------------------*/
 
 h4{line-height:30px}
-html{height:100%}
 body{min-height:100%;position: relative}
 .ico{background-image:url(../../defaunt/images/btn_icon.gif); background-repeat:no-repeat}
-.Hui-header{height:44px;-moz-box-shadow: 0 0 4px #333;-webkit-box-shadow: 0 0 4px #333;box-shadow: 0 0 4px #333;width:100%;z-index:99;position:relative; z-index:999}
+.Hui-header{height:44px;box-shadow: 0 0 4px #333;width:100%;z-index:99;position:relative; z-index:999}
 /*logo*/
 .Hui-logo,.Hui-logo-m{height:44px; margin-left:15px;cursor:pointer;font-size:16px; font-weight:bold; line-height:44px}
 .Hui-logo{display:inline-block; padding-right:5px}
